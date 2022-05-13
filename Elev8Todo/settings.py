@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,10 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #my own apps
+    # my own apps
     'todo_app',
 
-    #default apps
+    # default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Elev8Todo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #We want to implement the HTML view file, so we have to type the keywords [templates]
+        # We want to implement the HTML view file, so we have to type the keywords [templates]
         'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,3 +127,6 @@ STATICFILES_DIRS = ['static']
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
